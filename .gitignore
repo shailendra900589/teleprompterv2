@@ -1,0 +1,14 @@
+# Live teleprompter state (created on server; do not overwrite on deploy)
+public_html/data.json
+
+# App
+MyTeleprompter/node_modules/
+MyTeleprompter/.expo/
+MyTeleprompter/dist/
+MyTeleprompter/web-build/
+MyTeleprompter/.env*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

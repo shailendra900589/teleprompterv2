@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Clean URLs: hide .php
+    RewriteRule ^api/?$ api.php [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^$ index.php [L]
+
+    # Redirect old .php URLs to clean paths
+    RewriteCond %{THE_REQUEST} \s/+api\.php[\s?] [NC]
+    RewriteRule ^api\.php$ /api [R=301,L,QSA]
+    RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+    RewriteRule ^index\.php$ / [R=301,L,QSA]
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(php|json)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# Block direct download of live sync file (use /api?action=read)
+<Files "data.json">
+    Require all denied
+</Files>

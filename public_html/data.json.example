@@ -1,0 +1,20 @@
+{
+  "text": "Welcome. Paste a script or upload a PDF.",
+  "fontSize": 45,
+  "fontMode": "manual",
+  "speed": 0,
+  "scroll": 0,
+  "isMirroredX": false,
+  "isMirroredY": false,
+  "rotation": "0deg",
+  "bgColor": "#000000",
+  "textColor": "#ffffff",
+  "margin": 20,
+  "lineHeight": 1.5,
+  "textAlign": "center",
+  "cue": 0.4,
+  "countdown": 0,
+  "source": "text",
+  "sourceName": "",
+  "updatedAt": 0
+}
