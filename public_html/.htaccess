@@ -1,9 +1,20 @@
+DirectoryIndex index.php index.html
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
+    # Hostinger placeholder — never show after real site is deployed
+    RewriteRule ^default\.php$ / [R=301,L]
+
     # Clean URLs: hide .php
     RewriteRule ^api/?$ api.php [L,QSA]
+
+    # Phone display app (static Expo web export in /app/)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^app/?$ app/index.html [L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^$ index.php [L]

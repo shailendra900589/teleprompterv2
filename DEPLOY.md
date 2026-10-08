@@ -8,6 +8,7 @@ Upload **only** the contents of `public_html/` into your domain’s `public_html
 - `api.php` — JSON API (hidden URL: `/api`)
 - `repair-hindi.js` — PDF Hindi cleanup
 - `.htaccess` — clean URLs, cache headers, protect `data.json`
+- `app/` — **built phone display** (Expo web export; no npm on phone)
 - `data.json` — created automatically on first API hit (or copy from `data.json.example`)
 
 **URLs (no `.php` in the browser):**
@@ -18,8 +19,11 @@ Upload **only** the contents of `public_html/` into your domain’s `public_html
 | API read | `https://teleprompter.nectradigital.com/api?action=read` |
 | API write | `POST https://teleprompter.nectradigital.com/api?action=write` |
 | Health | `https://teleprompter.nectradigital.com/api?action=ping` |
+| Phone display | `https://teleprompter.nectradigital.com/app/` |
 
-Mobile app reads the same API URL (see `MyTeleprompter/app.json` → `extra.teleprompterApiUrl`).
+Mobile app and `/app/` read the same API URL (see `MyTeleprompter/app.json` → `extra.teleprompterApiUrl`).
+
+Rebuild display app after code changes: `cd MyTeleprompter && npm run build:web` (see `APP-USE-HINDI.md`).
 
 ## First-time server setup (SSH)
 

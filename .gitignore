@@ -8,6 +8,9 @@ MyTeleprompter/dist/
 MyTeleprompter/web-build/
 MyTeleprompter/.env*.local
 
+# Built APKs (download from EAS; do not commit)
+releases/*.apk
+
 # OS / editor
 .DS_Store
 Thumbs.db
